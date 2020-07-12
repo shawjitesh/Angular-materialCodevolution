@@ -1,1 +1,102 @@
+<mat-toolbar color="primary" class="navbar">
+  <div>Codevolution</div>
+  <div>
+    <span>Home</span>
+    <span>About</span>
+    <span>Services</span>
+  </div>
+</mat-toolbar>
+<!-- ---------------------------------------------- -->
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side" #sidenav (opened)="log('Opened')" (closed)="log('Closed')">Sidenav</mat-sidenav>
+  <!-- <mat-sidenav [(opened)]="opened" mode="push">Sidenav</mat-sidenav>
+  <mat-sidenav [(opened)]="opened" mode="over">Sidenav</mat-sidenav> -->
+  <mat-sidenav-content>
+    Main
+    <button mat-raised-button color="accent" (click)="opened = !opened">Toggle Sidenav</button>
+    <button mat-raised-button color="accent" (click)="sidenav.open()">Open</button>
+    <button mat-raised-button color="accent" (click)="sidenav.close()">Close</button>
+    <button mat-raised-button color="accent" (click)="sidenav.toggle()">Toggle</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- ---------------------------------------------- -->
 <button mat-raised-button>Hello World</button>
+<!-- ---------------------------------------------- -->
+<div class="mat-display-4">This is display 4</div>
+<div class="mat-display-3">This is display 3</div>
+<div class="mat-display-2">This is display 2</div>
+<div class="mat-display-1">This is display 1</div>
+
+<div class="mat-headline">This is a heading for h1</div>
+<div class="mat-title">This is a heading for h1</div>
+<div class="mat-subheading-2">This is a heading for h1</div>
+<div class="mat-subheading-1">This is a heading for h1</div>
+
+<div class="mat-body-1">This is body text</div>
+<div class="mat-body-2">This is bold body text</div>
+<div class="mat-caption">This is caption text</div>
+
+<div class="typography">
+  <h1>This is a heading for h1</h1>
+  <h2>This is a heading for h2</h2>
+  <h3>This is a heading for h3</h3>
+  <h4>This is a heading for h4</h4>
+</div>
+<!-- ---------------------------------------------- -->
+<div>
+  <button mat-button>Click me</button>
+  <button mat-raised-button>Click me</button>
+  <button mat-flat-button>Click me</button>
+  <button mat-stroked-button>Click me</button>
+</div>
+
+<div>
+  <button mat-icon-button>Icon</button>
+  <button mat-fab>Icon</button>
+  <button mat-mini-fab>Icon</button>
+</div>
+
+<div>
+  <button mat-button color="primary">Primary</button>
+  <button mat-button color="accent">Accent</button>
+  <button mat-button disableRipple color="warn">Warn</button>
+  <button mat-raised-button color="primary">Primary</button>
+  <button mat-raised-button color="accent">Accent</button>
+  <button mat-raised-button color="warn">Warn</button>
+</div>
+<!-- ---------------------------------------------- -->
+<div>
+  <mat-button-toggle #toggle checked disableRipple>Toggle</mat-button-toggle>
+  {{toggle.checked}}
+</div>
+
+<div>
+  <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" multiple>
+    <mat-button-toggle value="angular">Angular</mat-button-toggle>
+    <mat-button-toggle value="react">React</mat-button-toggle>
+    <mat-button-toggle value="vue">Vue</mat-button-toggle>
+  </mat-button-toggle-group>
+  {{toggleGroup.value}}
+</div>
+<!-- ---------------------------------------------- -->
+<div>
+  <mat-icon color="primary">grade</mat-icon>
+</div>
+<!-- ---------------------------------------------- -->
+<div>
+  <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0">Notifications</span>
+</div>
+<div>
+  <span matBadge="5" matBadgePosition="below before" matBadgeSize="small" matBadgeColor="primary">Notifications</span>
+</div>
+<div>
+  <span matBadge="5" matBadgePosition="below after" matBadgeSize="medium" matBadgeColor="accent">Notifications</span>
+</div>
+<div>
+  <span matBadge="5" matBadgePosition="above before" matBadgeSize="large" matBadgeColor="warn" matBadgeOverlap="false">Notifications</span>
+</div>
+<!-- ---------------------------------------------- -->
+<mat-progress-spinner value="40"></mat-progress-spinner>
+<mat-spinner *ngIf="showSpinner"></mat-spinner>
+<button mat-raised-button color="primary" (click)="loadData()">Load Data</button>
+<!-- ---------------------------------------------- -->
