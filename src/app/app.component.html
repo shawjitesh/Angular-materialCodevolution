@@ -100,3 +100,26 @@
 <mat-spinner *ngIf="showSpinner"></mat-spinner>
 <button mat-raised-button color="primary" (click)="loadData()">Load Data</button>
 <!-- ---------------------------------------------- -->
+<mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
+  <button mat-menu-item [matMenuTriggerFor]="subMenu">Front end</button>
+  <button mat-menu-item>Back end</button>
+</mat-menu>
+
+<button mat-stroked-button color="accent" [matMenuTriggerFor]="appMenu">Menu</button>
+<!-- ---------------------------------------------- -->
+<mat-menu #subMenu="matMenu">
+  <button mat-menu-item>Angular</button>
+  <button mat-menu-item>React</button>
+  <button mat-menu-item>Vue</button>
+</mat-menu>
+
+<mat-menu #lazyMenu="matMenu">
+  <ng-template matMenuContent let-name="name" let-hobby="hobby">
+    <button mat-menu-item>Settings</button>
+    <button mat-menu-item>Hobby: {{hobby}}</button>
+    <button mat-menu-item>Log out {{name}}</button>
+  </ng-template>
+</mat-menu>
+
+<button mat-stroked-button color="warn" [matMenuTriggerData]="{name: 'Jitesh', hobby: 'playing'}" [matMenuTriggerFor]="lazyMenu">Jitesh</button>
+<button mat-stroked-button color="warn" [matMenuTriggerData]="{name: 'Codevolution', hobby: 'teaching'}" [matMenuTriggerFor]="lazyMenu">Codevolution</button>
